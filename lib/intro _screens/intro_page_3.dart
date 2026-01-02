@@ -5,6 +5,9 @@ class IntroPage3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Center(child: Text("Page 3")));
+    return Container(
+      color: Colors.white,
+      child: Center(child: Text("Page 3")),
+    );
   }
 }

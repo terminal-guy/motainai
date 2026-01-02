@@ -36,50 +36,51 @@ class _HomePageState extends State<HomePage> {
       ),
 
       body: _selectedIndex == 0
-          ? Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  height: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Image.asset('assets/offers/happy_weekend.png'),
-                      Image.asset('assets/offers/localstores.png'),
-                      Image.asset('assets/offers/maxvalue.png'),
-                    ],
-                  ),
-                ),
+          ? ListView(
+              scrollDirection: Axis.vertical,
 
-                Container(
-                  padding: const EdgeInsets.only(left: 10),
-                  height: 240,
-                  child: Consumer<Restuarantmodel>(
-                    builder: (context, value, child) {
-                      return ListView.builder(
-                        padding: EdgeInsets.only(bottom: 4),
-                        itemCount: value.restaurantinfo.length,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 200,
+                      child: ListView(
                         scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return RestuarantTile(
-                            restuarantname: value.restaurantinfo[index][0],
-                            itemname: value.restaurantinfo[index][1],
-                            itemnewprice: value.restaurantinfo[index][2],
-                            itemoldprice: value.restaurantinfo[index][3],
-                            location: value.restaurantinfo[index][4],
-                            timeperiod: value.restaurantinfo[index][5],
-                            imagepath: value.restaurantinfo[index][6],
+                        children: [
+                          Image.asset('assets/offers/happy_weekend.png'),
+                          Image.asset('assets/offers/localstores.png'),
+                          Image.asset('assets/offers/maxvalue.png'),
+                        ],
+                      ),
+                    ),
+
+                    Container(
+                      padding: const EdgeInsets.only(left: 10),
+                      height: 240,
+                      child: Consumer<Restuarantmodel>(
+                        builder: (context, value, child) {
+                          return ListView.builder(
+                            padding: EdgeInsets.only(bottom: 4),
+                            itemCount: value.restaurantinfo.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return RestuarantTile(
+                                restuarantname: value.restaurantinfo[index][0],
+                                itemname: value.restaurantinfo[index][1],
+                                itemnewprice: value.restaurantinfo[index][2],
+                                itemoldprice: value.restaurantinfo[index][3],
+                                location: value.restaurantinfo[index][4],
+                                timeperiod: value.restaurantinfo[index][5],
+                                imagepath: value.restaurantinfo[index][6],
+                              );
+                            },
                           );
                         },
-                      );
-                    },
-                  ),
-                ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [Text('homepage')],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             )
