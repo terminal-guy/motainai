@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:motainai/components/product_model.dart';
 import 'package:motainai/components/restuarants.dart';
 import 'package:provider/provider.dart';
 import 'package:motainai/components/restuarantmodel.dart';
+import 'package:motainai/components/product_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,6 +20,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+        actions: [
+          TextButton.icon(
+            onPressed: () {},
+            icon: Icon(Icons.shopping_cart, color: Colors.green),
+            label: Text("Cart", style: TextStyle(color: Colors.green)),
+          ),
+        ],
 
         title: Padding(
           padding: EdgeInsets.only(left: 16),
@@ -74,11 +84,45 @@ class _HomePageState extends State<HomePage> {
                                 location: value.restaurantinfo[index][4],
                                 timeperiod: value.restaurantinfo[index][5],
                                 imagepath: value.restaurantinfo[index][6],
+                                productimage: '',
                               );
                             },
                           );
                         },
                       ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      child: Text(
+                        'Top Deals Today',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ),
+                    Consumer<ProductModel>(
+                      builder: (context, value, child) {
+                        return ListView.builder(
+                          itemCount: value.restaurantinfo.length,
+                          shrinkWrap: true, // <-- takes only needed height
+                          physics:
+                              const NeverScrollableScrollPhysics(), // <-- parent scrolls
+                          itemBuilder: (context, index) {
+                            return ProductTile(
+                              restuarantname: value.restaurantinfo[index][0],
+                              itemname: value.restaurantinfo[index][1],
+                              itemnewprice: value.restaurantinfo[index][2],
+                              itemoldprice: value.restaurantinfo[index][3],
+                              location: value.restaurantinfo[index][4],
+                              timeperiod: value.restaurantinfo[index][5],
+                              imagepath: value.restaurantinfo[index][6],
+                              productimage: value.restaurantinfo[index][7],
+                            );
+                          },
+                        );
+                      },
                     ),
                   ],
                 ),

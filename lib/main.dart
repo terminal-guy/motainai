@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motainai/components/product_model.dart';
 import 'package:motainai/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,8 +22,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Restuarantmodel(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ProductModel()),
+        ChangeNotifierProvider(create: (_) => Restuarantmodel()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: hasSeenOnboarding ? SplashScreen() : const SplashScreen(),
