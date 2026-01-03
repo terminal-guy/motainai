@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  PageController _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +57,9 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Container(
                       height: 200,
-                      child: ListView(
+                      child: PageView(
                         scrollDirection: Axis.horizontal,
+                        controller: _controller,
                         children: [
                           Image.asset('assets/offers/happy_weekend.png'),
                           Image.asset('assets/offers/localstores.png'),
