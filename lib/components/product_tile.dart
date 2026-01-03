@@ -9,8 +9,9 @@ class ProductTile extends StatelessWidget {
   final String timeperiod;
   final String imagepath;
   final String productimage;
+  void Function()? onPressed;
 
-  const ProductTile({
+  ProductTile({
     super.key,
     required this.restuarantname,
     required this.itemname,
@@ -20,6 +21,7 @@ class ProductTile extends StatelessWidget {
     required this.timeperiod,
     required this.imagepath,
     required this.productimage,
+    required this.onPressed,
   });
 
   @override
@@ -68,11 +70,12 @@ class ProductTile extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
+                            onPressed: onPressed,
+
                             child: const Text(
                               '+',
                               style: TextStyle(color: Colors.white),
                             ),
-                            onPressed: () {},
                           ),
                           SizedBox(width: 10),
                         ],

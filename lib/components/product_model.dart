@@ -43,5 +43,31 @@ class ProductModel extends ChangeNotifier {
       "assets/products/gyoza.png",
     ],
   ];
+
+  final List<List<String>> _cartItems = [];
+
   List<List<String>> get restaurantinfo => _resturantinfo;
+  List<List<String>> get cartItems => _cartItems;
+
+  // add
+  void addItemtoCart(int index) {
+    _cartItems.add(_resturantinfo[index]);
+    notifyListeners();
+  }
+
+  // remove
+
+  void removeItemsFromCart(int index) {
+    _cartItems.removeAt(index);
+    notifyListeners();
+  }
+
+  // calculate
+  String calculateTotal() {
+    double totalPrice = 0;
+    for (int i = 0; i < _cartItems.length; i++) {
+      totalPrice += double.parse(_cartItems[i][2]);
+    }
+    return totalPrice.toStringAsFixed(2);
+  }
 }

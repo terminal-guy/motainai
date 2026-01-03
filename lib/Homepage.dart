@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motainai/cartpage.dart';
 import 'package:motainai/components/product_model.dart';
 import 'package:motainai/components/restuarants.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,14 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         actions: [
           TextButton.icon(
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return CartPage();
+                },
+              ),
+            ),
             icon: Icon(Icons.shopping_cart, color: Colors.green),
             label: Text("Cart", style: TextStyle(color: Colors.green)),
           ),
@@ -121,6 +129,12 @@ class _HomePageState extends State<HomePage> {
                               timeperiod: value.restaurantinfo[index][5],
                               imagepath: value.restaurantinfo[index][6],
                               productimage: value.restaurantinfo[index][7],
+                              onPressed: () {
+                                Provider.of<ProductModel>(
+                                  context,
+                                  listen: false,
+                                ).addItemtoCart(index);
+                              },
                             );
                           },
                         );
