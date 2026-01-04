@@ -10,7 +10,7 @@ class RestuarantTile extends StatelessWidget {
   final String imagepath;
   final String productimage;
 
-  const RestuarantTile({
+  RestuarantTile({
     super.key,
     required this.restuarantname,
     required this.itemname,
@@ -27,15 +27,15 @@ class RestuarantTile extends StatelessWidget {
     return Row(
       children: [
         Material(
+          color: Colors.pink,
           elevation: 8,
           borderRadius: BorderRadius.circular(12),
-          color: Colors.yellow,
           child: Container(
             width: 260,
             padding: EdgeInsets.all(7),
 
             decoration: BoxDecoration(
-              color: Color(0xFFFAFAFA),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(12),
             ),
 

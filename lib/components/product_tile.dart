@@ -35,7 +35,7 @@ class ProductTile extends StatelessWidget {
             width: 350,
             padding: const EdgeInsets.all(7),
             decoration: BoxDecoration(
-              color: const Color(0xFFFAFAFA),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
@@ -64,7 +64,7 @@ class ProductTile extends StatelessWidget {
                             ),
                           ),
                           MaterialButton(
-                            color: Colors.green,
+                            color: Color(0xFF828368),
                             minWidth: 42,
                             height: 36,
                             shape: RoundedRectangleBorder(
@@ -73,7 +73,7 @@ class ProductTile extends StatelessWidget {
                             onPressed: onPressed,
 
                             child: const Text(
-                              '+',
+                              'Rescue',
                               style: TextStyle(color: Colors.white),
                             ),
                           ),

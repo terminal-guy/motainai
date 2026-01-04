@@ -8,7 +8,8 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Cart')),
+      backgroundColor: Colors.white,
+      appBar: AppBar(title: Text('My Cart'), backgroundColor: Colors.white),
       body: Consumer<ProductModel>(
         builder: (context, value, child) {
           return Column(

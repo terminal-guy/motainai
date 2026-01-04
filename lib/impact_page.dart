@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SearchPage extends StatelessWidget {
-  const SearchPage({super.key});
+class ImpactPage extends StatelessWidget {
+  const ImpactPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: ListView(children: [Center(child: Text('Profilepage'))]),
+      child: ListView(children: [Center(child: Text('ImpactPage'))]),
     );
   }
 }

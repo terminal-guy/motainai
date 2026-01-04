@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:motainai/cartpage.dart';
 import 'package:motainai/components/product_model.dart';
 import 'package:motainai/components/restuarants.dart';
+import 'package:motainai/hometab.dart';
+import 'package:motainai/impact_page.dart';
+import 'package:motainai/profilepage.dart';
+import 'package:motainai/searchpage.dart';
 import 'package:provider/provider.dart';
 import 'package:motainai/components/restuarantmodel.dart';
 import 'package:motainai/components/product_tile.dart';
@@ -15,14 +19,27 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+
+  final List<Widget> _pages = const [
+    Hometab(),
+    SearchPage(),
+    ImpactPage(),
+    ProfilePage(),
+  ];
+
   PageController _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
         actions: [
           TextButton.icon(
             onPressed: () => Navigator.push(
@@ -54,155 +71,82 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
 
-      body: _selectedIndex == 0
-          ? ListView(
-              scrollDirection: Axis.vertical,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 200,
-                      child: PageView(
-                        scrollDirection: Axis.horizontal,
-                        controller: _controller,
-                        children: [
-                          Image.asset('assets/offers/happy_weekend.png'),
-                          Image.asset('assets/offers/localstores.png'),
-                          Image.asset('assets/offers/maxvalue.png'),
-                        ],
-                      ),
-                    ),
-
-                    Container(
-                      padding: const EdgeInsets.only(left: 10),
-                      height: 240,
-                      child: Consumer<Restuarantmodel>(
-                        builder: (context, value, child) {
-                          return ListView.builder(
-                            padding: EdgeInsets.only(bottom: 4),
-                            itemCount: value.restaurantinfo.length,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return RestuarantTile(
-                                restuarantname: value.restaurantinfo[index][0],
-                                itemname: value.restaurantinfo[index][1],
-                                itemnewprice: value.restaurantinfo[index][2],
-                                itemoldprice: value.restaurantinfo[index][3],
-                                location: value.restaurantinfo[index][4],
-                                timeperiod: value.restaurantinfo[index][5],
-                                imagepath: value.restaurantinfo[index][6],
-                                productimage: '',
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      child: Text(
-                        'Top Deals Today',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.black87,
-                        ),
-                      ),
-                    ),
-                    Consumer<ProductModel>(
-                      builder: (context, value, child) {
-                        return ListView.builder(
-                          itemCount: value.restaurantinfo.length,
-                          shrinkWrap: true, // <-- takes only needed height
-                          physics:
-                              const NeverScrollableScrollPhysics(), // <-- parent scrolls
-                          itemBuilder: (context, index) {
-                            return ProductTile(
-                              restuarantname: value.restaurantinfo[index][0],
-                              itemname: value.restaurantinfo[index][1],
-                              itemnewprice: value.restaurantinfo[index][2],
-                              itemoldprice: value.restaurantinfo[index][3],
-                              location: value.restaurantinfo[index][4],
-                              timeperiod: value.restaurantinfo[index][5],
-                              imagepath: value.restaurantinfo[index][6],
-                              productimage: value.restaurantinfo[index][7],
-                              onPressed: () {
-                                Provider.of<ProductModel>(
-                                  context,
-                                  listen: false,
-                                ).addItemtoCart(index);
-                              },
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            )
-          : _selectedIndex == 1
-          ? const Center(child: Text('Search page'))
-          : const Center(child: Text('Profile page')),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          surfaceTintColor: Colors.transparent,
-          height: 70,
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(right: 12, left: 12, top: 0, bottom: 18),
+        child: Material(
+          color: Colors.white,
           elevation: 8,
-          indicatorColor: Colors.transparent,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-          iconTheme: WidgetStateProperty.resolveWith((states) {
-            if (states.contains(WidgetState.selected)) {
-              return const IconThemeData(
-                size: 24,
-                color: Color.fromARGB(255, 67, 160, 71),
-              );
-            }
-            return const IconThemeData(size: 24, color: Colors.grey);
-          }),
+          borderRadius: BorderRadius.circular(30),
+          clipBehavior: Clip.antiAlias,
+          child: NavigationBarTheme(
+            data: NavigationBarThemeData(
+              surfaceTintColor: Colors.transparent,
+              shadowColor: Colors.transparent,
+              backgroundColor: Colors.white,
+              height: 50,
+              indicatorColor: Colors.transparent,
+              labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+              iconTheme: WidgetStateProperty.resolveWith((states) {
+                if (states.contains(WidgetState.selected)) {
+                  return const IconThemeData(
+                    size: 30,
+                    color: Color(0xFF828368),
+                  );
+                }
+                return const IconThemeData(size: 24, color: Colors.grey);
+              }),
 
-          labelTextStyle: WidgetStateProperty.resolveWith((states) {
-            if (states.contains(WidgetState.selected)) {
-              return const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFF0E5A5A),
-              );
-            }
-            return const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-              color: Colors.grey,
-            );
-          }),
-        ),
-        child: NavigationBar(
-          backgroundColor: Colors.white,
-          selectedIndex: _selectedIndex,
-          onDestinationSelected: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(Icons.home),
-              label: 'Home',
+              labelTextStyle: WidgetStateProperty.resolveWith((states) {
+                if (states.contains(WidgetState.selected)) {
+                  return const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF828368),
+                  );
+                }
+                return const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                );
+              }),
             ),
-            NavigationDestination(
-              icon: Icon(Icons.search_outlined),
-              selectedIcon: Icon(Icons.search),
-              label: 'Search',
+            child: Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: NavigationBar(
+                backgroundColor: Colors.white,
+                selectedIndex: _selectedIndex,
+                onDestinationSelected: (index) {
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                },
+                destinations: const [
+                  NavigationDestination(
+                    icon: Icon(Icons.home_outlined),
+                    selectedIcon: Icon(Icons.home),
+                    label: 'Home',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.search_outlined),
+                    selectedIcon: Icon(Icons.search),
+                    label: 'Search',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.public),
+                    selectedIcon: Icon(Icons.travel_explore),
+                    label: 'Impact',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.person_outline),
+                    selectedIcon: Icon(Icons.person),
+                    label: 'Profile',
+                  ),
+                ],
+              ),
             ),
-            NavigationDestination(
-              icon: Icon(Icons.person_outline),
-              selectedIcon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
+          ),
         ),
       ),
     );
