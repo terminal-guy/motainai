@@ -7,7 +7,7 @@ class IntroPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntroScreenWidget(
-      heading: 'Sustainability isn’t invisible anymore.',
+      heading: 'Sustainability isn’t invisible anymore',
       subtitle: 'Every action reduces CO₂ emissions and we show you how.',
       imagepath: 'assets/illustrations/carbon_emissions.png',
       height: 150,
