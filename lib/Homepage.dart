@@ -34,42 +34,44 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBody: true,
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        surfaceTintColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        actions: [
-          TextButton.icon(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return CartPage();
-                },
-              ),
-            ),
-            icon: Icon(Icons.shopping_cart, color: Colors.green),
-            label: Text("Cart", style: TextStyle(color: Colors.green)),
-          ),
-        ],
+      appBar: _selectedIndex == 2
+          ? null
+          : AppBar(
+              surfaceTintColor: Colors.transparent,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.white,
+              elevation: 0,
+              scrolledUnderElevation: 0,
+              actions: [
+                TextButton.icon(
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return CartPage();
+                      },
+                    ),
+                  ),
+                  icon: Icon(Icons.shopping_cart, color: Colors.green),
+                  label: Text("Cart", style: TextStyle(color: Colors.green)),
+                ),
+              ],
 
-        title: Padding(
-          padding: EdgeInsets.only(left: 16),
-          child: Row(
-            children: const [
-              Text(
-                "MOTAINAI",
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.bold,
+              title: Padding(
+                padding: EdgeInsets.only(left: 16),
+                child: Row(
+                  children: const [
+                    Text(
+                      "MOTAINAI",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
-      ),
+            ),
 
       body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(

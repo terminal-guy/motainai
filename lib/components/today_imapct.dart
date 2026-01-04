@@ -5,6 +5,8 @@ class TodaysImpactCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    PageController _controller = PageController();
+
     return Container(
       // card outer
       padding: const EdgeInsets.all(14),
