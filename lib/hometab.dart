@@ -61,6 +61,7 @@ class _HometabState extends State<Hometab> {
                           timeperiod: value.restaurantinfo[index][5],
                           imagepath: value.restaurantinfo[index][6],
                           productimage: '',
+                          containerheight: 260,
                         );
                       },
                     );

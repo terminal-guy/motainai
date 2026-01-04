@@ -30,7 +30,10 @@ class CartPage extends StatelessWidget {
                         ),
                         child: ListTile(
                           leading: Image.asset(item[7], height: 70, width: 70),
-                          title: Text(item[1]),
+                          title: Text(
+                            item[1],
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           subtitle: Text('¥ ' + item[2]),
                           trailing: IconButton(
                             onPressed: () => Provider.of<ProductModel>(

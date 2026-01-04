@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   smooth_page_indicator: ^1.0.0
   shared_preferences: ^2.2.3
+  standard_searchbar: ^2.0.0
   provider:
 
 dev_dependencies:

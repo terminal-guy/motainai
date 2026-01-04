@@ -9,6 +9,7 @@ class RestuarantTile extends StatelessWidget {
   final String timeperiod;
   final String imagepath;
   final String productimage;
+  double containerheight;
 
   RestuarantTile({
     super.key,
@@ -20,6 +21,7 @@ class RestuarantTile extends StatelessWidget {
     required this.timeperiod,
     required this.imagepath,
     required this.productimage,
+    required this.containerheight,
   });
 
   @override
@@ -31,7 +33,7 @@ class RestuarantTile extends StatelessWidget {
           elevation: 8,
           borderRadius: BorderRadius.circular(12),
           child: Container(
-            width: 260,
+            width: containerheight,
             padding: EdgeInsets.all(7),
 
             decoration: BoxDecoration(
