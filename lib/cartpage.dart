@@ -29,7 +29,7 @@ class CartPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: ListTile(
-                          leading: Image.asset(item[7], height: 50),
+                          leading: Image.asset(item[7], height: 70, width: 70),
                           title: Text(item[1]),
                           subtitle: Text('¥ ' + item[2]),
                           trailing: IconButton(
