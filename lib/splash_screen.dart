@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
           // dot page indicator
           Container(
             alignment: Alignment.bottomCenter,
-            padding: const EdgeInsets.only(bottom: 120),
+            padding: const EdgeInsets.only(bottom: 90),
 
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 /// ),
                 if (onLastPage)
                   SizedBox(
-                    width: 200,
+                    width: 260,
                     child: ElevatedButton(
                       onPressed: () async {
                         final prefs = await SharedPreferences.getInstance();
@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
                       child: const Text(
-                        'Let\’s Make an Impact',
+                        'Let\’s make an impact together',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
