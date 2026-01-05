@@ -38,6 +38,7 @@ dependencies:
   shared_preferences: ^2.2.3
   standard_searchbar: ^2.0.0
   provider:
+  syncfusion_flutter_charts: ^32.1.21
 
 dev_dependencies:
   flutter_test:
