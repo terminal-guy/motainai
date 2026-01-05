@@ -49,7 +49,7 @@ class LocalHeroCard extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               const Text(
-                'Local Heroes',
+                'Local Heroe - Sustainer of the Month',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w800,
