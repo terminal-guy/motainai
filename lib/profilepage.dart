@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 60),
 
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(20.0),
             child: ListTile(
               trailing: Icon(Icons.settings, color: Colors.green[700]),
               leading: Icon(Icons.person, color: Colors.green[700]),
@@ -25,6 +25,7 @@ class ProfilePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              onTap: () {},
             ),
           ),
 

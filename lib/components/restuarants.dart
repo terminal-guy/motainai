@@ -32,49 +32,51 @@ class RestuarantTile extends StatelessWidget {
           color: Colors.pink,
           elevation: 8,
           borderRadius: BorderRadius.circular(12),
-          child: Container(
-            width: containerheight,
-            padding: EdgeInsets.all(7),
+          child: InkWell(
+            onTap: () {},
+            child: Ink(
+              width: containerheight,
+              padding: EdgeInsets.all(7),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
 
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-            ),
-
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // IMAGE
-                ClipRRect(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // IMAGE
+                  ClipRRect(
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(12),
+                    ),
+                    child: Image.asset(
+                      imagepath,
+                      height: 120,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  child: Image.asset(
-                    imagepath,
-                    height: 120,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
 
-                Container(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 15),
-                      Text(
-                        restuarantname,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 18),
+                  Container(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 15),
+                        Text(
+                          restuarantname,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 18),
 
-                      Text(location),
-                      Text('Collect today $timeperiod'),
-                    ],
+                        Text(location),
+                        Text('Collect today $timeperiod'),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

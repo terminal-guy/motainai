@@ -49,9 +49,9 @@ class LocalHeroCard extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               const Text(
-                'Local Heroe - Sustainer of the Month',
+                'Local Hero \nSustainer of the Month',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 12,
                   fontWeight: FontWeight.w800,
                   color: Colors.black87,
                 ),

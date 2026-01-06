@@ -9,9 +9,11 @@ class ProductTile extends StatelessWidget {
   final String timeperiod;
   final String imagepath;
   final String productimage;
-  void Function()? onPressed;
 
-  ProductTile({
+  final VoidCallback onPressed; // button
+  final VoidCallback? onCardTap; // whole card
+
+  const ProductTile({
     super.key,
     required this.restuarantname,
     required this.itemname,
@@ -22,6 +24,7 @@ class ProductTile extends StatelessWidget {
     required this.imagepath,
     required this.productimage,
     required this.onPressed,
+    this.onCardTap,
   });
 
   @override
@@ -30,81 +33,82 @@ class ProductTile extends StatelessWidget {
       children: [
         Material(
           elevation: 8,
+          color: Colors.transparent,
           borderRadius: BorderRadius.circular(12),
-          child: Container(
-            width: 350,
-            padding: const EdgeInsets.all(7),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Row(
-              children: [
-                // IMAGE
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(productimage, height: 120, width: 120),
-                ),
-                const SizedBox(width: 12),
-
-                // TEXT + BUTTON AREA
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              itemname,
+          clipBehavior: Clip.antiAlias, // ✅ ripple clipped
+          child: InkWell(
+            onTap: onCardTap ?? () => debugPrint('Card tapped'),
+            child: Ink(
+              width: 350,
+              padding: const EdgeInsets.all(7),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(productimage, height: 120, width: 120),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                itemname,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            MaterialButton(
+                              color: const Color(0xFF828368),
+                              minWidth: 42,
+                              height: 36,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              onPressed: onPressed,
+                              child: const Text(
+                                'Rescue',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Text(restuarantname),
+                        const SizedBox(height: 6),
+                        Row(
+                          children: [
+                            Text(
+                              '¥ $itemoldprice ',
                               style: const TextStyle(
+                                decoration: TextDecoration.lineThrough,
+                              ),
+                            ),
+                            Text(
+                              '¥ $itemnewprice',
+                              style: const TextStyle(
+                                color: Colors.green,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
-                              overflow: TextOverflow.ellipsis,
                             ),
-                          ),
-                          MaterialButton(
-                            color: Color(0xFF828368),
-                            minWidth: 42,
-                            height: 36,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            onPressed: onPressed,
-
-                            child: const Text(
-                              'Rescue',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      Text(restuarantname),
-                      const SizedBox(height: 6),
-                      Row(
-                        children: [
-                          Text(
-                            '¥ $itemoldprice ',
-                            style: const TextStyle(
-                              decoration: TextDecoration.lineThrough,
-                            ),
-                          ),
-                          Text(
-                            '¥ $itemnewprice',
-                            style: const TextStyle(
-                              color: Colors.green,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
