@@ -114,11 +114,8 @@ It is:
 
 Built by a multicultural team at Ritsumeikan APU, Japan  
 Combining:
-- Tech  
-- Strategy  
-- Finance  
-- Sustainability  
-- Partnerships  
+![Motainai](images2/image.png)
+
 
 ---
 
