@@ -1,10 +1,24 @@
 # 🌱 Motainai — Surplus to Sustainable
 
+![Motainai App](images/app/ui.png)
+
+
 ## Overview
 Motainai is a food-rescue platform that transforms surplus food into measurable value.  
 It connects businesses with excess inventory to consumers seeking affordable meals—while turning every purchase into visible climate action.
 
-> “People don’t just buy surplus food. They buy who they become by saving it.”
+## 🔮 Vision
+
+> A world where wasting food feels as unnatural as wasting water.
+
+---
+
+## 🎯 Mission
+
+Culturally engineer embedded behavior change that makes sustainable living effortless.
+
+---
+
 
 ---
 
@@ -52,8 +66,6 @@ Motainai bridges the gap between **surplus supply and real demand**.
 ---
 
 
-
-
 ## 🏗️ Technical Stack
 
 - 🔥 Firebase (backend)
@@ -77,18 +89,6 @@ Motainai contributes to:
 - Reduced carbon emissions  
 - Increased food accessibility  
 - Business awareness of surplus value  
-
----
-
-## 🔮 Vision
-
-> A world where wasting food feels as unnatural as wasting water.
-
----
-
-## 🎯 Mission
-
-Engineer culturally embedded behavior change that makes sustainable living effortless.
 
 ---
 
