@@ -1,5 +1,5 @@
 <h1 align="center">
-# 🌱 Motainai — Surplus to Sustainable
+🌱 Motainai — Surplus to Sustainable
 </h1>
 
 ![Motainai](images2/ui.png)
