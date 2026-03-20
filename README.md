@@ -1,6 +1,6 @@
 # 🌱 Motainai — Surplus to Sustainable
 
-![Motainai App](images/app/ui.png)
+![Motainai](images2/app/ui.png)
 
 
 ## Overview
