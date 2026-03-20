@@ -19,8 +19,6 @@ It connects businesses with excess inventory to consumers seeking affordable mea
 
 > Culturally engineer embedded behavior change that makes sustainable living effortless.
 
----
-
 
 ---
 
