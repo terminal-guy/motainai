@@ -17,7 +17,9 @@ It connects businesses with excess inventory to consumers seeking affordable mea
 
 ## 🎯 Mission
 
-> Culturally engineer embedded behavior change that makes sustainable living effortless.
+> Culturally engineer embedded behavior change through gamification that makes sustainable living effortless.
+
+![Motainai](images2/features.png)
 
 
 ---
