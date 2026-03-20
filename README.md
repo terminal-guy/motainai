@@ -1,6 +1,6 @@
-<p align="center">
+<h1 align="center">
 # 🌱 Motainai — Surplus to Sustainable
-</p>
+</h1>
 
 ![Motainai](images2/ui.png)
 
