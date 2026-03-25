@@ -58,7 +58,7 @@ Motainai bridges the gap between **surplus supply and real demand**.
 ---
 
 
-## 🔗 Recognition
+## 🏆 Recognition
 
 ![Motainai](images2/journey.png)
 
