@@ -21,7 +21,6 @@ It connects businesses with excess inventory to consumers seeking affordable mea
 
 ![Motainai](images2/features.png)
 
-
 ---
 
 ## 🚨 Problem
@@ -55,6 +54,14 @@ Motainai bridges the gap between **surplus supply and real demand**.
 - Real-world tree planting integration  
 
 👉 “See your impact. Grow it.”
+
+---
+
+
+## 🔗 Recognition
+
+![Motainai](images2/journey.png)
+
 
 ---
 
@@ -118,6 +125,8 @@ Combining:
 
 
 ---
+
+
 
 ## 🔗 Final Thought
 
