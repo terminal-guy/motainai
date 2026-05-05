@@ -122,9 +122,3 @@ It is:
 Built by a multicultural team at Ritsumeikan APU, Japan  
 Combining:
 ![Motainai](images2/image.png)
-
-
----
-
-
-
