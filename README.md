@@ -128,8 +128,3 @@ Combining:
 
 
 
-## 🔗 Final Thought
-
-Motainai doesn’t ask people to care more.
-
-It makes **caring profitable, visible, and habitual.**
